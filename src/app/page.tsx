@@ -454,11 +454,13 @@ export default function Home() {
         }}
       >
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full flex items-center justify-center card"
-               style={{ background: "#6B1A1A", color: "#F5EDD8" }}>
-            <span className="font-bold text-lg">घ</span>
-          </div>
-          <div className="flex flex-col leading-tight">
+          <img 
+            src="/logo.svg" 
+            alt="Gharguti Masala Logo" 
+            className="w-10 h-10 rounded-lg"
+            style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.1))" }}
+          />
+          <div className="flex flex-col leading-tight ml-3">
             <span className="font-devanagari text-xl font-bold" style={{ color: "#4A0E0E" }}>
               घरगुती मसाले
             </span>
