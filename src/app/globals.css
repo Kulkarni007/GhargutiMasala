@@ -1,0 +1,309 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-devanagari: var(--font-tiro-devanagari);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* Brand palette */
+  --color-maroon:           #6B1A1A;
+  --color-maroon-deep:      #4A0E0E;
+  --color-maroon-light:     #8B2E2E;
+  --color-turmeric:         #D4881C;
+  --color-turmeric-light:   #E8A83A;
+  --color-warm-brown:       #7A4F35;
+  --color-warm-brown-light: #A06B4A;
+  --color-beige:            #F5EDD8;
+  --color-beige-dark:       #EBD9B4;
+  --color-cream:            #FBF6ED;
+  --color-dark-green:       #2C4A2E;
+  --color-dark-green-light: #3D6640;
+  --color-stone:            #8B8070;
+  --color-text-dark:        #1E0E0E;
+  --color-text-body:        #3D2B1E;
+  --color-text-muted:       #7A6555;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: #FBF6ED;
+  --foreground: #1E0E0E;
+  --card: #F5EDD8;
+  --card-foreground: #1E0E0E;
+  --primary: #6B1A1A;
+  --primary-foreground: #FBF6ED;
+  --secondary: #EBD9B4;
+  --secondary-foreground: #3D2B1E;
+  --muted: #EBD9B4;
+  --muted-foreground: #7A6555;
+  --accent: #D4881C;
+  --accent-foreground: #1E0E0E;
+  --border: #D4C4A8;
+  --input: #EBD9B4;
+  --ring: #D4881C;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #FBF6ED;
+    color: #1E0E0E;
+    font-family: 'Tiro Devanagari Marathi', serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ── Devanagari headings ── */
+.font-devanagari {
+  font-family: var(--font-tiro-devanagari), 'Noto Serif Devanagari', serif;
+  font-feature-settings: "kern" 1;
+}
+
+/* ── Heading fonts ── */
+h1, h2, h3 {
+  font-family: 'Anek Devanagari', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+/* ── Professional typography improvements ── */
+p {
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+/* ── Professional button styles ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 14px 0 rgba(107, 26, 26, 0.2);
+  border: 2px solid transparent;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px 0 rgba(107, 26, 26, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* ── Professional card styles ── */
+.card {
+  background: #FFFFFF;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(107, 26, 26, 0.08);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* ── Professional animations ── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* ── Professional spacing utilities ── */
+.section-padding {
+  padding: 6rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 8rem 4rem;
+  }
+}
+
+.container-max {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ── Professional text shadows ── */
+.text-shadow {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ── Professional focus states ── */
+.focus-ring:focus {
+  outline: 2px solid #D4881C;
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/* ── Professional loading states ── */
+.loading-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ── Texture overlays ── */
+.texture-wood {
+  background-image:
+    repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(100,60,20,0.03) 2px, rgba(100,60,20,0.03) 4px),
+    repeating-linear-gradient(180deg, transparent, transparent 8px, rgba(80,40,10,0.02) 8px, rgba(80,40,10,0.02) 10px);
+}
+
+.texture-stone {
+  background-image:
+    radial-gradient(ellipse at 20% 30%, rgba(180,160,130,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(140,120,100,0.06) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 50%, rgba(160,140,110,0.04) 0%, transparent 60%);
+}
+
+.texture-spice {
+  background-image:
+    radial-gradient(circle at 15% 85%, rgba(212,136,28,0.06) 0%, transparent 40%),
+    radial-gradient(circle at 85% 15%, rgba(107,26,26,0.05) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(122,79,53,0.03) 0%, transparent 60%);
+}
+
+/* ── Warm depth shadows ── */
+.shadow-warm-sm {
+  box-shadow: 0 2px 8px rgba(107,26,26,0.08), 0 1px 3px rgba(60,20,10,0.06);
+}
+.shadow-warm-md {
+  box-shadow: 0 8px 32px rgba(107,26,26,0.12), 0 4px 12px rgba(60,20,10,0.08);
+}
+.shadow-warm-lg {
+  box-shadow: 0 20px 60px rgba(107,26,26,0.15), 0 8px 24px rgba(60,20,10,0.10);
+}
+.shadow-warm-xl {
+  box-shadow: 0 32px 80px rgba(107,26,26,0.18), 0 12px 32px rgba(60,20,10,0.12);
+}
+
+/* ── 3D card effect ── */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94), box-shadow 0.45s ease;
+}
+.card-3d:hover {
+  transform: translateY(-10px) rotateX(2deg);
+  box-shadow: 0 28px 64px rgba(107,26,26,0.18), 0 12px 28px rgba(60,20,10,0.12), 0 4px 8px rgba(0,0,0,0.08);
+}
+
+/* ── Section divider ── */
+.divider-spice {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(107,26,26,0.2) 30%, rgba(212,136,28,0.3) 50%, rgba(107,26,26,0.2) 70%, transparent);
+}
+
+/* ── Spice image glow ── */
+.spice-glow {
+  filter: drop-shadow(0 12px 32px rgba(212,136,28,0.25)) drop-shadow(0 4px 12px rgba(107,26,26,0.15));
+}
+
+/* ── WhatsApp button pulse ── */
+@keyframes gentle-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.3); }
+  50% { box-shadow: 0 0 0 8px rgba(37,211,102,0); }
+}
+.whatsapp-pulse {
+  animation: gentle-pulse 2.5s ease infinite;
+}
+
+/* ── Parallax base ── */
+.parallax-bg {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* ── Fade-in on scroll ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fadeInUp 0.7s ease both;
+}
+.animate-fade-up-delay-1 { animation-delay: 0.1s; }
+.animate-fade-up-delay-2 { animation-delay: 0.2s; }
+.animate-fade-up-delay-3 { animation-delay: 0.3s; }
+.animate-fade-up-delay-4 { animation-delay: 0.4s; }
+
+/* Hide Next.js error overlay portal */
+nextjs-portal {
+  display: none !important;
+}
