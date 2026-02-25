@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
         hostname: '**',
       },
     ],
+    unoptimized: true,
   },
   outputFileTracingRoot: path.resolve(__dirname, '../../'),
   typescript: {
@@ -24,13 +25,9 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  turbopack: {
-    rules: {
-      "*.{jsx,tsx}": {
-        loaders: [loaderPath]
-      }
-    }
-  }
+  output: 'export',
+  trailingSlash: true,
+  distDir: 'out'
 } as NextConfig;
 
 export default nextConfig;
